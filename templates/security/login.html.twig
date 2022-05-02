@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.message }}
+            {{ user.email }}
+        </div>
+    {% endif %}
+
+    <div class="container" style="padding-top: 160px ">
+        <form method="post">
+            <div class="form-group">
+                <input type="text" name="_username" required="required" class="form-control" id="exampleInputEmail1">
+                <small id="emailHelp" class="form-text text-muted">Merci d'entrez un adresse email</small>
+            </div>
+            <div class="form-group">
+                <input type="password" name="_password" required="required" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Entrer</button>
+            <input type="hidden" name="_csrf_token_" value="{{ csrf_token('authenticate') }}">
+        </form>
+    </div>
+{% endblock %}

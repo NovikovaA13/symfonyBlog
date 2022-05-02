@@ -1,0 +1,8 @@
+my_builder_cronos:
+  exporter:
+    key: unique-key
+    mailto: your@email.com
+    path: C:\wamp64\www\mySite
+    executor: C:\wamp64\bin\php\php7.1.33
+    console: C:\wamp64\www\mySite\bin
+    shell: /bin/bash

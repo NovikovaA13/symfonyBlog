@@ -1,0 +1,11 @@
+symfony new my_site --full --version=4.2
+php bin/console doctrine:database:create
+php bin/console server:run
+php bin/console server:start
+php bin/console make:controller PostsController
+php bin/console make:entity Post
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+php bin/console make:form
+yarn encore dev
+npm install bootstrap@4.3.1

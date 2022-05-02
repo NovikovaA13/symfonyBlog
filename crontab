@@ -1,0 +1,16 @@
+       # /etc/crontab: crontab du système
+       # A la différence des autres crontabs, vous n’avez pas besoin d’exécuter
+       # la commande crontab pour installer la nouvelle version quand vous
+       # modifiez ce fichier. Ce fichier possède aussi un champ utilisateur que
+       # les autres crontabs n’ont pas.
+
+       SHELL=/bin/sh
+       PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+       # m h dom mon dow utilisateur commande
+       42 6 * * *        root    run-parts --report /etc/cron.daily
+       47 6 * * 7        root    run-parts --report /etc/cron.weekly
+       52 6 1 * *        root    run-parts --report /etc/cron.monthly
+       #
+       # Supprime l’invocation d’anacron, puisque cela est maintenant géré par
+       # un fichier dans /etc/cron.d

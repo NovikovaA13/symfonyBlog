@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+
+<div class="container col-sm-12">
+        <h1>{{ post.title }} </h1>
+        <span>{{ post.getCreatedAt() | date('Y-m-d H:i:s') }} </span><br><hr>
+    <p>{{ post.body }}</p><hr>
+    <p><a href="{{ path('blog_post_edit', {'slug': post.slug}) }}">Modifier</a></p>
+    <p><a href="{{ path('blog_post_delete', {'slug': post.slug}) }}">Supprimer</a></p>
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_row(form.comment) }}
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+    <div class="container">
+        {% for comment in comments %}
+            <li>{{ comment.comment }}</li>
+        {% endfor %}
+    </div>
+
+
+
+    </div>
+{% endblock %}
